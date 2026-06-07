@@ -17,11 +17,6 @@
         owner: root
         group: root
 
-    # - name: Check private key
-    #   stat:
-    #     path: /etc/wireguard/private_key
-    #   register: private_key_check
-
     - name: Generate keys if not exist
       shell: |
         wg genkey | tee /etc/wireguard/private_key | wg pubkey > /etc/wireguard/public_key
